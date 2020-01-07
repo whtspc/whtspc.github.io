@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Local</title>
+    <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <link rel="stylesheet" href="index.css" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
+</head>
+
+<body>
+    <div id="root">
+</div>
+
+    <script type="text/babel">
+        const rootElement = document.getElementById('root')
+
+        class Questioncard extends React.Component {
+            
+            constructor() {
+                super()
+                this.state = {
+                    question : 'Mi moku e kili',
+                    answers: ['I eat an apple', 'I am not very hungry', 'I like fruit']
+                }
+            }
+
+
+            render() {
+                return (
+                    <div className='questioncard'>
+						<p className='desc'>Translate the sentence</p>
+						<div className='questioncont'>
+							<div className='linjas'>mi moku e kili</div>
+							<p className='question'>{this.state.question}</p>
+						</div>
+						<ul className='answers'>
+                            {this.state.answers.map((answer) => <li className='answer'>{answer}</li>)}</ul>
+                    </div>            
+                )
+            }   
+        }
+
+        function App(){
+            return(
+                <div className='app'>
+                    <Questioncard />    
+                </div>
+            )
+        }
+
+        ReactDOM.render(
+            <App />, document.getElementById('root')
+        )
+    </script>
+</body>
+</html>

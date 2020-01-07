@@ -1,0 +1,84 @@
+@font-face {
+   font-family: linja;
+   src: url(linjapona3-5OTF.ttf);
+}
+html, body, #root {
+    font-family: 'Muli';
+	margin: 0px;
+	height: 100%;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.questioncard {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+    border: 1px solid grey;
+    padding:10px;
+	border-radius:10px;
+	background-color: ghostwhite;
+	box-sizing: border-box;
+}
+
+.desc {
+	font-size: 1em;
+	margin: 10px;
+}
+
+.questioncont {
+    flex: 1;
+	display: flex;
+	flex-direction: column;
+    padding:10px;
+    margin:10px;
+    border-radius: 10px;
+	align-items: center;
+	justify-content: center;
+}
+
+.question {
+    padding:10px;
+    margin:10px;
+    border-radius: 10px;
+	font-size: 1.5em;
+}
+
+.linjas {
+	padding: 10px;
+	font-family: linja;
+	font-size: 3em;
+}
+
+.answers {
+    padding:0px;
+	display: flex;
+	flex-direction: column;
+}
+
+.answer {
+    border: 2px solid grey;
+    border-radius: 10px;
+    box-shadow: 0px 2px gray;
+    padding: 10px;
+    margin:0px 10px 10px 10px;
+    list-style: none;
+	font-size: 1em;
+	background-color: white;
+}
+
+.answer:hover {
+    background-color: aliceblue;
+    border-color: cornflowerblue;
+}
+
+.answer:active {
+    margin:2px 10px 8px 10px;
+    box-shadow: none;
+}
