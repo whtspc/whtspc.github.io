@@ -36,24 +36,25 @@ html, body, #root {
     flex: 1;
 	display: flex;
 	flex-direction: column;
-    padding:10px;
-    margin:10px;
-    border-radius: 10px;
+    padding:0px;
+    margin:0px;
 	align-items: center;
 	justify-content: center;
+	text-align: center;
 }
 
 .question {
-    padding:10px;
-    margin:10px;
+    padding:5px;
+    margin:0px;
     border-radius: 10px;
 	font-size: 1.5em;
 }
 
 .linjas {
-	padding: 10px;
+	padding: 5px;
+	margin:0px;
 	font-family: linja;
-	font-size: 3em;
+	font-size: 2.5em;
 }
 
 .answers {
