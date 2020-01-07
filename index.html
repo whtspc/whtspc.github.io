@@ -17,6 +17,31 @@
 </div>
 
     <script type="text/babel">
+	
+		const level1 = [
+			{"question": "jan laso jelo lili li kama", 
+			"answers":[
+			"The cowboy is screaming while he comes",
+			"The little green people have arrived",
+			"Someone is painting the room green"
+				]
+			},
+			{"question": "mi wile kama sona e toki", 
+			 "answers":[
+				"I want to learn the language",
+				"I say that I am going to school",
+				"I learn they do not want to talk"
+				]
+			},
+			{"question": "mama li tawa telo suli poka jan pona ona", 
+			 "answers":[
+				"Mama drinks from the big cup of her friend",
+				"The little green people have arrived",
+				"Mother went to the sea with her friends"
+				]
+			}
+		]
+	
         const rootElement = document.getElementById('root')
 
         class Questioncard extends React.Component {
@@ -24,10 +49,29 @@
             constructor() {
                 super()
                 this.state = {
-                    question : 'Mi moku e kili',
-                    answers: ['I eat an apple', 'I am not very hungry', 'I like fruit']
+					qnumber : 0
                 }
+				this.handleClick = this.handleClick.bind(this)
             }
+			
+			handleClick() {
+				if (this.state.qnumber < level1.length-1){
+				this.setState((prevState) => (
+						{
+							qnumber : prevState.qnumber + 1
+						}
+					)
+				)
+				} else {
+				this.setState((prevState) => (
+						{
+							qnumber : 0
+						}
+					)
+				)
+				}
+			}
+					
 
 
             render() {
@@ -35,11 +79,11 @@
                     <div className='questioncard'>
 						<p className='desc'>Translate the sentence</p>
 						<div className='questioncont'>
-							<div className='linjas'>mi moku e kili</div>
-							<p className='question'>{this.state.question}</p>
+							<div className='linjas'>{level1[this.state.qnumber].question}</div>
+							<p className='question'>{level1[this.state.qnumber].question}</p>
 						</div>
-						<ul className='answers'>
-                            {this.state.answers.map((answer) => <li className='answer'>{answer}</li>)}</ul>
+						<ul className='answers' onClick={this.handleClick}>
+                            {level1[this.state.qnumber].answers.map((answer) => <li className='answer'>{answer}</li>)}</ul>
                     </div>            
                 )
             }   
