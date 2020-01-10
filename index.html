@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>React Local</title>
     <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
@@ -700,7 +700,7 @@
 							<div className='answer order3'>
 								{this.state.wrong2}
 							</div>
-							<div className={'answer ' + this.state.orderClass} ontouchstart={this.handleClick}>
+							<div className={'answer ' + this.state.orderClass} onClick={this.handleClick}>
 								{words[this.state.linjaIndex].meaning}
 							</div>
 						</div>
