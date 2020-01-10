@@ -45,7 +45,7 @@ html, body, #root {
 }
 
 .translinjas {
-	transform: translateX(-130%) rotate(-15deg);
+	transform: translateX(-130%) rotate(-10deg);
 }
 
 .answercont {
