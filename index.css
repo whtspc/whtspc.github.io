@@ -28,7 +28,7 @@ html, body, #root {
 
 .linjas {
 	flex:1;
-	padding: 50px;
+	padding: 0px;
 	margin:0px;
 	font-family: linja;
 	font-size: 20em;
