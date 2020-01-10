@@ -1,0 +1,75 @@
+@font-face {
+   font-family: linja;
+   src: url(linjapona3-5OTF.ttf);
+}
+html, body, #root {
+    font-family: 'Muli';
+	margin: 0px;
+	height: 100%;
+}
+
+.app {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.questioncard {
+	flex:1;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+    border: 1px solid grey;
+    padding:10px;
+	border-radius:10px;
+	background-color: ghostwhite;
+	box-sizing: border-box;
+}
+
+.linjas {
+	flex:1;
+	padding: 50px;
+	margin:0px;
+	font-family: linja;
+	font-size: 20em;
+	text-align: center;
+}
+
+.answercont {
+	padding:0px;
+	display: flex;
+	flex-direction: column;
+}
+
+.answer {
+	border: 2px solid grey;
+    border-radius: 10px;
+    box-shadow: 0px 2px gray;
+    padding: 10px;
+    margin:0px 10px 10px 10px;
+	font-size: 1em;
+	background-color: white;
+	text-align: center;
+}
+
+.order1 {
+	order: 1;
+}
+
+.order2 {
+	order: 2;
+}
+
+.order3 {
+	order: 3;
+}
+
+.answer:hover {
+    background-color: aliceblue;
+    border-color: cornflowerblue;
+}
+
+.answer:active {
+    margin:2px 10px 8px 10px;
+    box-shadow: none;
+}

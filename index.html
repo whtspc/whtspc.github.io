@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Local</title>
+    <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <link rel="stylesheet" href="index.css" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
+</head>
+
+<body>
+    <div id="root">
+</div>
+
+    <script type="text/babel">
+	
+		const words = [
+			  {
+				"word": "a!",
+				"meaning": "a",
+				"wrongs": ["o", "e", "kin", "wan"]
+			  },
+			  {
+				"word": "akesi",
+				"meaning": "akesi",
+				"wrongs": ["pipi", "kala", "kasi", "soweli", "walo", "alasa"]
+			  },
+			  {
+				"word": "ala",
+				"meaning": "ala",
+				"wrongs": ["ale/ali", "a", "e", "ijo", "ike"]
+			  },
+			  {
+				"word": "ale",
+				"meaning": "ale/ali",
+				"wrongs": ["ala", "sike", "tu", "nasin"]
+			  },
+			  {
+				"word": "anpa",
+				"meaning": "anpa",
+				"wrongs": ["sewi", "poka", "uta"]
+			  },
+			  {
+				"word": "ante",
+				"meaning": "ante",
+				"wrongs": ["e", "en", "ala", "sama", "telo", "suli", "unpa", "weka", "sin"]
+			  },
+			  {
+				"word": "anu",
+				"meaning": "anu",
+				"wrongs": ["nasin", "en", "suli", "lili", "ala", "ni", "tan", "taso"]
+			  },
+			  {
+				"word": "awen",
+				"meaning": "awen",
+				"wrongs": ["tawa", "kama", "ante", "sama", "weka", "wawa"]
+			  },
+			  {
+				"word": "e!",
+				"meaning": "e",
+				"wrongs": ["o", "a", "pi", "ni", "la", "tawa", "li", "tu"]
+			  },
+			  {
+				"word": "en",
+				"meaning": "en",
+				"wrongs": ["anu", "weka", "ante", "ala", "sin", "pi", "e"]
+			  },
+			  {
+				"word": "ijo",
+				"meaning": "ijo",
+				"wrongs": ["o", "sike", "e", "a", "ale/ali", "lukin", "tenpo", "toki", "lupa", "mama", "ma"]
+			  },
+			  {
+				"word": "ike",
+				"meaning": "ike",
+				"wrongs": ["nena", "la", "li", "luka", "awen", "jaki"]
+			  },
+			  {
+				"word": "ilo",
+				"meaning": "ilo",
+				"wrongs": ["kepeken", "len", "sijelo", "pali", "ijo", "selo"]
+			  },
+			  {
+				"word": "insa",
+				"meaning": "insa",
+				"wrongs": ["lipu", "poka", "sinpin", "monsi", "anpa", "sitelen", "poki"]
+			  },
+			  {
+				"word": "jaki",
+				"meaning": "jaki",
+				"wrongs": ["ike", "jelo", "esun", "ko", "kon"]
+			  },
+			  {
+				"word": "jan",
+				"meaning": "jan",
+				"wrongs": ["meli", "mani", "mije", "ijo", "sike", "pana"]
+			  },
+			  {
+				"word": "jelo",
+				"meaning": "jelo",
+				"wrongs": ["loje", "kule", "laso", "suno", "jan", "lawa", "walo"]
+			  },
+			  {
+				"word": "jo",
+				"meaning": "jo",
+				"wrongs": ["insa", "pana", "lape", "seme"]
+			  },
+			  {
+				"word": "kala",
+				"meaning": "kala",
+				"wrongs": ["telo", "waso", "akesi", "soweli", "mu", "kalama", "kama", "kasi"]
+			  },
+			  {
+				"word": "kalama",
+				"meaning": "kalama",
+				"wrongs": ["toki", "kala", "alasa", "pana", "sona", "moku", "poki"]
+			  },
+			  {
+				"word": "kama",
+				"meaning": "kama",
+				"wrongs": ["tawa", "awen", "kala", "noka", "tan", "taso"]
+			  },
+			  {
+				"word": "kasi",
+				"meaning": "kasi",
+				"wrongs": ["kala", "laso", "jo", "sina", "mi", "ona", "kili"]
+			  },
+			  {
+				"word": "ken",
+				"meaning": "ken",
+				"wrongs": ["taso", "ko", "en", "anu", "la"]
+			  },
+			  {
+				"word": "kepeken",
+				"meaning": "kepeken",
+				"wrongs": ["pana", "ilo", "moku", "len", "sijelo", "ma"]
+			  },
+			  {
+				"word": "kili",
+				"meaning": "kili",
+				"wrongs": ["kasi", "ijo", "kala", "kiwen", "alasa", "anpa", "mama"]
+			  },
+			  {
+				"word": "kin",
+				"meaning": "kin",
+				"wrongs": ["taso", "a", "o", "sin", "mi", "wan", "nanpa", "ken", "kon"]
+			  },
+			  {
+				"word": "kiwen",
+				"meaning": "kiwen",
+				"wrongs": ["nanpa", "ko", "kon", "awen", "ijo", "nimi"]
+			  },
+			  {
+				"word": "ko",
+				"meaning": "ko",
+				"wrongs": ["ijo", "sike", "jaki", "telo", "linja", "ale/ali"]
+			  },
+			  {
+				"word": "kon",
+				"meaning": "kon",
+				"wrongs": ["telo", "linja", "tu", "ken", "kin", "weka", "jaki"]
+			  },
+			  {
+				"word": "kule",
+				"meaning": "kule",
+				"wrongs": ["ante", "loje", "laso", "jelo", "tomo", "soweli", "kute", "pimeja"]
+			  },
+			  {
+				"word": "kute",
+				"meaning": "kute",
+				"wrongs": ["kule", "nena", "lukin", "oko", "la", "monsi", "insa"]
+			  },
+			  {
+				"word": "kulupu",
+				"meaning": "kulupu",
+				"wrongs": ["sike", "tu", "oko", "ma", "alasa", "ale/ali"]
+			  },
+			  {
+				"word": "la",
+				"meaning": "la",
+				"wrongs": ["kute", "ala", "ale/ali", "insa", "e", "li", "pi", "a"]
+			  },
+			  {
+				"word": "lape",
+				"meaning": "lape",
+				"wrongs": ["jan", "laso", "kasi", "kala", "tenpo", "ona", "lawa"]
+			  },
+			  {
+				"word": "laso",
+				"meaning": "laso",
+				"wrongs": ["loje", "kasi", "kule", "jelo", "alasa", "walo"]
+			  },
+			  {
+				"word": "lawa",
+				"meaning": "lawa",
+				"wrongs": ["lape", "jan", "mije", "meli", "mani", "sijelo", "lukin"]
+			  },
+			  {
+				"word": "len",
+				"meaning": "len",
+				"wrongs": ["selo", "sijelo", "li", "lipu", "open", "sitelen", "anpa"]
+			  },
+			  {
+				"word": "lete",
+				"meaning": "lete",
+				"wrongs": ["weka","ala", "anta", "walo", "anu", "en", "seli"]
+			  },
+			  {
+				"word": "li",
+				"meaning": "li",
+				"wrongs": ["pi", "a", "tawa", "e", "mi", "ni"]
+			  },
+			  {
+				"word": "lili",
+				"meaning": "lili",
+				"wrongs": ["li", "suli", "walo", "pini", "e", "pi", "ilo"]
+			  },
+			  {
+				"word": "linja",
+				"meaning": "linja",
+				"wrongs": ["telo", "kon", "lon", "seme"]
+			  },
+			  {
+				"word": "lipu",
+				"meaning": "lipu",
+				"wrongs": ["sitelen", "ijo", "sona", "tomo", "nimi", "luka", "lupa"]
+			  },
+			  {
+				"word": "loje",
+				"meaning": "loje",
+				"wrongs": ["walo", "jelo", "kule", "lupa", "lon"]
+			  },
+			  {
+				"word": "lon",
+				"meaning": "lon",
+				"wrongs": ["len", "insa", "lape", "supa", "sin"]
+			  },
+			  {
+				"word": "luka",
+				"meaning": "luka",
+				"wrongs": ["pana", "nena", "pali", "lawa", "sewi", "lupa", "lukin", "lipu"]
+			  },
+			  {
+				"word": "lukin",
+				"meaning": "lukin",
+				"wrongs": ["oko", "sike", "ijo", "toki", "suno", "ma", "pilin"]
+			  },
+			  {
+				"word": "lupa",
+				"meaning": "lupa",
+				"wrongs": ["luka", "nena", "pona", "ike", "unpa", "uta", "lipu"]
+			  },
+			  {
+				"word": "ma",
+				"meaning": "ma",
+				"wrongs": ["mi", "suno", "toki", "ijo", "sike", "meli", "mije", "insa", "oko", "mama"]
+			  },
+			  {
+				"word": "mama",
+				"meaning": "mama",
+				"wrongs": ["sike", "jan", "meli", "mije", "mani", "mu", "kili"]
+			  },
+			  {
+				"word": "mani",
+				"meaning": "mani",
+				"wrongs": ["soweli", "meli", "mije", "kulupu", "kute", "akesi", "pipi", "jan", "mama", "anu", "ma", "suno", "moli"]
+			  },
+			  {
+				"word": "meli",
+				"meaning": "meli",
+				"wrongs": ["moli", "mani", "mije", "jan", "monsi", "soweli", "sewi", "ale/ali", "ijo"]
+			  },
+			  {
+				"word": "mi",
+				"meaning": "mi",
+				"wrongs": ["mu", "sina", "ona", "lape", "ma", "lili", "jan"]
+			  },
+			  {
+				"word": "mije",
+				"meaning": "mije",
+				"wrongs": ["meli", "jan", "sewi", "mani", "mama", "moli", "lawa"]
+			  },
+			  {
+				"word": "moku",
+				"meaning": "moku",
+				"wrongs": ["pana", "loje", "uta", "kiwen", "noka", "pali", "luka", "jan"]
+			  },
+			  {
+				"word": "moli",
+				"meaning": "moli",
+				"wrongs": ["jan", "kala", "mani", "tomo", "insa", "pilin", "sinpin", "sijelo", "selo"]
+			  },
+			  {
+				"word": "monsi",
+				"meaning": "monsi",
+				"wrongs": ["sinpin", "insa", "poka", "akesi", "mani", "meli"]
+			  },
+			  {
+				"word": "mu",
+				"meaning": "mu",
+				"wrongs": ["o", "a", "soweli", "ma", "waso", "mi"]
+			  },
+			  {
+				"word": "mun",
+				"meaning": "mun",
+				"wrongs": ["mu", "sike", "palisa", "sona", "suno", "sewi", "kili"]
+			  },
+			  {
+				"word": "musi",
+				"meaning": "musi",
+				"wrongs": ["lukin", "pona", "mu", "linja", "tawa", "awen", "mute"]
+			  },
+			  {
+				"word": "mute",
+				"meaning": "mute",
+				"wrongs": ["tu", "sama", "kon", "selo", "len", "sijelo", "sewi", "musi"]
+			  },
+			  {
+				"word": "nanpa",
+				"meaning": "nanpa",
+				"wrongs": ["alasa", "lipu", "nimi", "lili", "ni", "nasa", "nasin", "ilo", "tu", "ante"]
+			  },
+			  {
+				"word": "nasa",
+				"meaning": "nasa",
+				"wrongs": ["sike", "tenpo", "mun", "suno", "pilin", "insa", "ijo", "ale/ali"]
+			  },
+			  {
+				"word": "nasin",
+				"meaning": "nasin",
+				"wrongs": ["nasa", "pi", "ni", "kasi", "nanpa", "nena", "o", "kin", "sin"]
+			  },
+			  {
+				"word": "nena",
+				"meaning": "nena",
+				"wrongs": ["nasin", "ike", "tomo", "meli", "tomo", "kiwen", "lupa", "pona", "toki"]
+			  },
+			  {
+				"word": "ni",
+				"meaning": "ni",
+				"wrongs": ["nasin", "kasi", "mi", "mu", "pi", "e", "tan", "taso", "anu", "kin"]
+			  },
+			  {
+				"word": "nimi",
+				"meaning": "nimi",
+				"wrongs": ["tomo", "lipu", "sitelen", "toki", "ni", "nanpa", "sitelen", "linja", "uta", "kiwen"]
+			  },
+			  {
+				"word": "noka",
+				"meaning": "noka",
+				"wrongs": ["luka", "len", "nanpa", "poka", "poki", "pan"]
+			  },
+			  {
+				"word": "o!",
+				"meaning": "o",
+				"wrongs": ["pan", "a", "wan", "tan", "li", "e", "la"]
+			  },
+			  {
+				"word": "oko",
+				"meaning": "oko",
+				"wrongs": ["lukin", "ona", "poka", "sike", "ijo", "ilo"]
+			  },
+			  {
+				"word": "olin",
+				"meaning": "olin",
+				"wrongs": ["pilin", "insa", "sewi", "moli", "lili", "unpa"]
+			  },
+			  {
+				"word": "ona",
+				"meaning": "ona",
+				"wrongs": ["sina", "mi", "pona", "lape", "tawa"]
+			  },
+			  {
+				"word": "open",
+				"meaning": "open",
+				"wrongs": ["poki", "len", "pu", "lipu", "sona", "anpa", "insa", "sinpin"]
+			  },
+			  {
+				"word": "pakala",
+				"meaning": "pakala",
+				"wrongs": ["ante", "alasa", "tu" ,"awen", "sitelen", "kalama", "palisa", "poka", "poki"]
+			  },
+			  {
+				"word": "pali",
+				"meaning": "pali",
+				"wrongs": ["pana", "ali", "palisa", "pan", "moku", "mije", "jan", "kepeken"]
+			  },
+			  {
+				"word": "palisa",
+				"meaning": "palisa",
+				"wrongs": ["nimi", "ijo", "sike", "ni", "tomo", "wan", "sijelo", "selo", "pakala", "kalama", "pimeja"]
+			  },
+			  {
+				"word": "pana",
+				"meaning": "pana",
+				"wrongs": ["pali", "kepeken", "pana", "pan", "pakala", "toki", "sona", "seli"]
+			  },
+			  {
+				"word": "pi",
+				"meaning": "pi",
+				"wrongs": ["tomo", "li", "pu", "la", "e", "a", "pini", "taso"]
+			  },
+			  {
+				"word": "pilin",
+				"meaning": "pilin",
+				"wrongs": ["olin", "insa", "sijelo", "wile", "sewi", "pona"]
+			  },
+			  {
+				"word": "pimeja",
+				"meaning": "pimeja",
+				"wrongs": ["kule", "kasi", "jaki", "tomo", "len", "pipi", "nanpa", "palisa", "kalama", "sitelen"]
+			  },
+			  {
+				"word": "pini",
+				"meaning": "pini",
+				"wrongs": ["wan", "pipi", "poki", "pilin", "pipi", "sin", "taso", "open"]
+			  },
+			  {
+				"word": "pipi",
+				"meaning": "pipi",
+				"wrongs": ["akesi", "pini", "poki", "lili", "kili", "mute", "waso", "soweli", "mu"]
+			  },
+			  {
+				"word": "poka",
+				"meaning": "poka",
+				"wrongs": ["poki", "sinpin", "monsi", "pona", "pali", "tomo", "lipu", "lupa", "sona", "lon"]
+			  },
+			  {
+				"word": "poki",
+				"meaning": "poki",
+				"wrongs": ["lupa", "nena", "tomo", "open", "lipu", "sona", "insa", "poka", "pona", "lon"]
+			  },
+			  {
+				"word": "pona",
+				"meaning": "pona",
+				"wrongs": ["poka", "poki", "toki", "ike", "pana", "pilin"]
+			  },
+			  {
+				"word": "sama",
+				"meaning": "sama",
+				"wrongs": ["tu", "ante", "e", "linja", "nimi", "seme"]
+			  },
+			  {
+				"word": "seli",
+				"meaning": "seli",
+				"wrongs": ["lete", "selo", "suli", "toki", "sewi", "sin", "weka", "lon", "sona", "oko", "lukin", "pana"]
+			  },
+			  {
+				"word": "selo",
+				"meaning": "selo",
+				"wrongs": ["seli", "sijelo", "suli", "sewi", "sike", "sin", "sina", "len", "lipu", "soweli"]
+			  },
+			  {
+				"word": "seme",
+				"meaning": "seme",
+				"wrongs": ["sama", "o", "kin", "taso", "anu", "pi", "la","seli", "sona"]
+			  },
+			  {
+				"word": "sewi",
+				"meaning": "sewi",
+				"wrongs": ["anpa", "jaki", "suwi", "selo", "seli", "sijelo"]
+			  },
+			  {
+				"word": "sijelo",
+				"meaning": "sijelo",
+				"wrongs": ["len", "selo", "mute", "seli", "suli", "taso", "open", "lupa"]
+			  },
+			  {
+				"word": "sike",
+				"meaning": "sike",
+				"wrongs": ["ijo", "ko", "tenpo", "toki", "lawa", "jan", "seme", "seli", "ike", "kili"]
+			  },
+			  {
+				"word": "sin",
+				"meaning": "sin",
+				"wrongs": ["kin", "sina", "weka", "seli", "sona", "toki", "pana", "kulupu"]
+			  },
+			  {
+				"word": "sina",
+				"meaning": "sina",
+				"wrongs": ["ona", "mi", "lape", "ko", "sama", "pini", "nasin"]
+			  },
+			  {
+				"word": "sinpin",
+				"meaning": "sinpin",
+				"wrongs": ["monsi", "poka", "insa", "lawa", "palisa", "pini", "poki"]
+			  },
+			  {
+				"word": "sitelen",
+				"meaning": "sitelen",
+				"wrongs": ["lipu", "pu", "sona", "moli", "kalama", "palisa", "pimeja"]
+			  },
+			  {
+				"word": "sona",
+				"meaning": "sona",
+				"wrongs": ["ona", "pona", "toki", "suno", "pana", "seli", "lipu", "open", "pini"]
+			  },
+			  {
+				"word": "soweli",
+				"meaning": "soweli",
+				"wrongs": [""]
+			  },
+			  {
+				"word": "suli",
+				"meaning": "suli",
+				"wrongs": ["seli", "lili", "li", "sijelo", "ni", "awen", "walo"]
+			  },
+			  {
+				"word": "suno",
+				"meaning": "suno",
+				"wrongs": ["sike", "ma", "sona", "ijo", "jan", "palisa", "uta"]
+			  },
+			  {
+				"word": "supa",
+				"meaning": "supa",
+				"wrongs": ["sewi", "moku", "sijelo", "tomo", "selo", "open", "anpa"]
+			  },
+			  {
+				"word": "suwi",
+				"meaning": "suwi",
+				"wrongs": ["sewi", "soweli", "waso", "suli", "lukin", "pona", "olin"]
+			  },
+			  {
+				"word": "tan",
+				"meaning": "tan",
+				"wrongs": ["ni", "kama", "tawa", "kin", "taso", "wan", "pan", "pi", "li"]
+			  },
+			  {
+				"word": "taso",
+				"meaning": "taso",
+				"wrongs": ["pini", "waso", "sin", "lon", "monsi", "sinpin", "tawa"]
+			  },
+			  {
+				"word": "tawa",
+				"meaning": "tawa",
+				"wrongs": ["kama", "tan", "musi", "noka", "luka", "e", "li", "taso"]
+			  },
+			  {
+				"word": "telo",
+				"meaning": "telo",
+				"wrongs": ["kon", "sama", "lon", "ante", "selo", "seli", "awen"]
+			  },
+			  {
+				"word": "tenpo",
+				"meaning": "tenpo",
+				"wrongs": ["suno", "mani", "ijo", "telo", "nasin", "lawa", "lukin"]
+			  },
+			  {
+				"word": "toki",
+				"meaning": "toki",
+				"wrongs": ["sona", "pana", "pona", "seli", "linja", "poki", "poka", "kalama"]
+			  },
+			  {
+				"word": "tomo",
+				"meaning": "tomo",
+				"wrongs": ["lipu", "sona", "len", "open", "sinpin", "sitelen", "kama", "tenpo"]
+			  },
+			  {
+				"word": "tu",
+				"meaning": "tu",
+				"wrongs": ["sama", "mute", "kon", "wan", "e", "sijelo", "pini"]
+			  },
+			  {
+				"word": "unpa",
+				"meaning": "unpa",
+				"wrongs": ["olin", "pilin", "pimeja", "meli", "nena", "jaki", "esun", "anpa", "tenpo"]
+			  },
+			  {
+				"word": "uta",
+				"meaning": "uta",
+				"wrongs": ["moku", "loje", "mama", "anpa", "lupa", "lipu", "luka"]
+			  },
+			  {
+				"word": "utala",
+				"meaning": "utala",
+				"wrongs": ["pakala", "ante", "kalama", "alasa", "kepeken", "ilo", "ala", "weka"]
+			  },
+			  {
+				"word": "walo",
+				"meaning": "walo",
+				"wrongs": ["waso", "wawa", "kule", "laso", "loje", "jelo", "awen"]
+			  },
+			  {
+				"word": "wan",
+				"meaning": "wan",
+				"wrongs": ["palisa", "a", "o", "kin", "pan", "tan", "taso", "pini"]
+			  },
+			  {
+				"word": "waso",
+				"meaning": "waso",
+				"wrongs": ["taso", "kasi", "soweli", "mu", "pali", "walo", "wawa"]
+			  },
+			  {
+				"word": "wawa",
+				"meaning": "wawa",
+				"wrongs": ["weka", "mani", "jan", "mije", "meli", "lawa", "tawa"]
+			  },
+			  {
+				"word": "weka",
+				"meaning": "weka",
+				"wrongs": ["ala", "pini", "utala", "ante", "pimeja"]
+			  },
+			  {
+				"word": "wile",
+				"meaning": "wile",
+				"wrongs": ["olin", "pilin", "unpa", "nena", "pona", "monsi", "ike", "ilo"]
+			  },
+			  
+			  {
+				"word": "alasa",
+				"meaning": "alasa",
+				"wrongs": ["kalama", "ala", "soweli", "waso", "pakala"]
+			  },
+			  {
+				"word": "esun",
+				"meaning": "esun",
+				"wrongs": ["jaki", "unpa", "kala", "telo", "sewi", "nasa"]
+			  },
+			  {
+				"word": "pan",
+				"meaning": "pan",
+				"wrongs": ["wan", "tan", "lili", "mute", "suli", "e", "ni"]
+			  },
+			  {
+				"word": "pu",
+				"meaning": "pu",
+				"wrongs": ["sitelen", "lipu", "pi", "pona", "sona", "len"]
+			  },
+			  {
+				"word": "kijetesantakalu",
+				"meaning": "kijetesantakalu",
+				"wrongs": ["soweli", "waso", "akesi", "pipi", "kala"]
+			  }
+		]
+		
+		const ordClassArray = ['order1', 'order2', 'order3']
+	
+        const rootElement = document.getElementById('root')
+
+        class Questioncard extends React.Component {
+		
+            
+            constructor() {
+                super()
+				const linjaI = Math.floor(Math.random()*words.length)
+				const wrong1 = Math.floor(Math.random()*words[linjaI].wrongs.length)
+				const wrong2 = this.otherIndex(linjaI, wrong1)
+                this.state = {
+						linjaIndex : linjaI,
+						orderClass : ordClassArray[Math.floor(Math.random()*ordClassArray.length)],
+						wrong1 : words[linjaI].wrongs[wrong1],
+						wrong2 : words[linjaI].wrongs[wrong2]
+						}
+				this.handleClick = this.handleClick.bind(this)
+            }
+			
+			otherIndex(linjaI, wrong1 ) {
+				let r = Math.floor(Math.random()*words[linjaI].wrongs.length)
+				if (r !== wrong1) {
+					return r
+				}
+				else {
+					return this.otherIndex(linjaI, wrong1)
+				}
+			}
+			
+			handleClick() {
+				const linjaI = Math.floor(Math.random()*words.length)
+				const wrong1 = Math.floor(Math.random()*words[linjaI].wrongs.length)
+				const wrong2 = this.otherIndex(linjaI, wrong1)
+				this.setState(
+					(prevState) => {return ( 
+						{
+						linjaIndex : linjaI,
+						orderClass : ordClassArray[Math.floor(Math.random()*ordClassArray.length)],
+						wrong1 : words[linjaI].wrongs[wrong1],
+						wrong2 : words[linjaI].wrongs[wrong2]
+						})
+					}
+				)
+				
+			}
+					
+
+
+            render() {
+                return (
+                    <div className='questioncard'>
+						<div className='linjas'>
+							{words[this.state.linjaIndex].word}
+						</div>
+						<div className='answercont'>
+							<div className='answer order2'>
+								{this.state.wrong1}
+							</div>
+							<div className='answer order3'>
+								{this.state.wrong2}
+							</div>
+							<div className={'answer ' + this.state.orderClass} onClick={this.handleClick}>
+								{words[this.state.linjaIndex].meaning}
+							</div>
+						</div>
+                    </div>            
+                )
+            }   
+        }
+
+        function App(){
+            return(
+                <div className='app'>
+                    <Questioncard />
+                </div>
+            )
+        }
+
+        ReactDOM.render(
+            <App />, document.getElementById('root')
+        )
+    </script>
+</body>
+</html>
