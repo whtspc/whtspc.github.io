@@ -397,7 +397,7 @@
 			  {
 				"word": "pana",
 				"meaning": "pana",
-				"wrongs": ["pali", "kepeken", "pana", "pan", "pakala", "toki", "sona", "seli"]
+				"wrongs": ["pali", "kepeken", "pona", "pan", "pakala", "toki", "sona", "seli"]
 			  },
 			  {
 				"word": "pi",
@@ -653,10 +653,32 @@
 						linjaIndex : linjaI,
 						orderClass : ordClassArray[Math.floor(Math.random()*ordClassArray.length)],
 						wrong1 : words[linjaI].wrongs[wrong1],
-						wrong2 : words[linjaI].wrongs[wrong2]
+						wrong2 : words[linjaI].wrongs[wrong2],
+						transClassLinjas: '',
+						transClassAns: '',
+						animstate : 0
 						}
 				this.handleClick = this.handleClick.bind(this)
+				this.setNewQuestion = this.setNewQuestion.bind(this)
+				this.arewethere = this.arewethere.bind(this)
             }
+			
+			handleClick() {
+
+				document.getElementById('lin').addEventListener('transitionend', this.arewethere)
+
+				this.setState(
+					{transClassLinjas: 'translinjas',transClassAns: 'transanswers', animstate : 1}
+				)
+			}
+
+			arewethere () {
+				if (this.state.animstate == 1){
+					this.setNewQuestion()
+				}
+				
+
+			}
 			
 			otherIndex(linjaI, wrong1 ) {
 				let r = Math.floor(Math.random()*words[linjaI].wrongs.length)
@@ -667,8 +689,9 @@
 					return this.otherIndex(linjaI, wrong1)
 				}
 			}
-			
-			handleClick() {
+
+			setNewQuestion() {
+
 				const linjaI = Math.floor(Math.random()*words.length)
 				const wrong1 = Math.floor(Math.random()*words[linjaI].wrongs.length)
 				const wrong2 = this.otherIndex(linjaI, wrong1)
@@ -678,11 +701,14 @@
 						linjaIndex : linjaI,
 						orderClass : ordClassArray[Math.floor(Math.random()*ordClassArray.length)],
 						wrong1 : words[linjaI].wrongs[wrong1],
-						wrong2 : words[linjaI].wrongs[wrong2]
+						wrong2 : words[linjaI].wrongs[wrong2],
+						transClassLinjas : '',
+						transClassAns: '',
+						animstate : 2
 						})
 					}
 				)
-				
+
 			}
 					
 
@@ -690,10 +716,10 @@
             render() {
                 return (
                     <div className='questioncard'>
-						<div className='linjas'>
+						<div id='lin' className={'linjas ' + this.state.transClassLinjas}>
 							{words[this.state.linjaIndex].word}
 						</div>
-						<div className='answercont'>
+						<div className={'answercont ' + this.state.transClassAns}>
 							<div className='answer order2'>
 								{this.state.wrong1}
 							</div>
