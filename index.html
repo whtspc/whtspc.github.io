@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>React Local</title>
+    <title>kama sona e sitelen pona</title>
     <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
     <script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
     <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
@@ -659,31 +659,30 @@
 						shakeClass: ''
 						}
 				this.handleClick = this.handleClick.bind(this)
-				this.handleWrongClick = this.handleWrongClick.bind(this)
 				this.setNewQuestion = this.setNewQuestion.bind(this)
 				this.arewethere = this.arewethere.bind(this)
             }
 			
-			handleClick() {
+			handleClick(e) {
 
 				document.getElementById('lin').addEventListener('animationend', this.arewethere)
 
-				this.setState(
-					{transClassLinjas: 'translinjas', transClassAns: 'transanswers'}
-				)
-			}
+				if ( e.target.classList.contains('falser')){
+					this.setState(
+						{shakeClass: 'shaker'}
+					)
+				}
+				else{
+	
+					this.setState(
+						{transClassLinjas: 'translinjas', transClassAns: 'transanswers'}
+					)
+				}
 
-			handleWrongClick() {
-				this.setState(
-					{shakeClass: 'shaker'}
-				)
 			}
 
 			arewethere () {
 				if (this.state.transClassLinjas == 'translinjas'){
-					this.setState(
-						{transClassLinjas: 'middlelinjas', transClassAns: 'middleanswers'}
-					)
 					this.setNewQuestion()
 				}
 				else if (this.state.transClassLinjas == 'middlelinjas'){
@@ -691,7 +690,7 @@
 						{transClassLinjas: '', transClassAns: ''}
 					)
 				}
-				
+
 				if (this.state.shakeClass == 'shaker') {
 					this.setState(
 						{shakeClass: ''}
@@ -727,7 +726,7 @@
 						wrong2 : words[linjaI].wrongs[wrong2],
 						transClassLinjas : 'middlelinjas',
 						transClassAns: 'middleanswers',
-						animstate : 2
+						
 						})
 					}
 				)
@@ -743,10 +742,10 @@
 							{words[this.state.linjaIndex].word}
 						</div>
 						<div className={'answercont ' + this.state.transClassAns}>
-							<div className='answer order2' onClick={this.handleWrongClick}>
+							<div className='answer order2 falser' onClick={this.handleClick}>
 								{this.state.wrong1}
 							</div>
-							<div className='answer order3' onClick={this.handleWrongClick}>
+							<div className='answer order3 falser' onClick={this.handleClick}>
 								{this.state.wrong2}
 							</div>
 							<div className={'answer ' + this.state.orderClass} onClick={this.handleClick}>
