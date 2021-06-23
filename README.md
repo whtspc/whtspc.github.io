@@ -2,4 +2,4 @@
 
 For learning Sitelen Pona on mobile
 
-Check app at: whtspc.github.io
+Check app at: https://whtspc.github.io/
